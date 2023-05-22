@@ -1,5 +1,6 @@
 import './NavBar.css'
 import logo from '../../../../public/icon.jpeg'
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const navItems = <>
@@ -41,7 +42,7 @@ const NavBar = () => {
       </div>
       {/* navbar-ends */}
       <div className="navbar-end">
-        <a className="btn">Login</a>
+        <Link to="/signIn"><a className="btn">Sign In</a></Link>
       </div>
     </div>
   );
