@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../Pages/Shared/NavBar/NavBar";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext } from "react";
@@ -8,6 +8,7 @@ const SignUp = () => {
 
   const { user, createUser } = useContext(AuthContext)
   console.log('Current User after auth change', user)
+  const navigate = useNavigate()
 
   const handleRegister = event => {
     // prevent the browser from going back to the default setting
@@ -32,7 +33,10 @@ const SignUp = () => {
         })
         // re-set the form after a successful registration
         form.reset()
+        // navigate the user to the home page after a successful registration
+        navigate("/")
       })
+
       .catch(error => {
         console.error(error.mess
         )
