@@ -3,6 +3,7 @@ import NavBar from "../Pages/Shared/NavBar/NavBar";
 import { AuthContext } from "../Providers/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
+import Footer from "../Pages/Shared/Footer/Footer";
 
 const SignUp = () => {
 
@@ -106,6 +107,7 @@ const SignUp = () => {
           </div>
         </div>
       </form>
+      <Footer></Footer>
     </div>
   );
 };

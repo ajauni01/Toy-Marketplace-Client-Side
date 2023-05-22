@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { FaGoogle } from 'react-icons/fa';
 import auth from "../FireBase/Firebase.config";
+import Footer from "../Pages/Shared/Footer/Footer";
 
 
 const SingIn = () => {
@@ -101,14 +102,14 @@ const SingIn = () => {
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="email" name="email" className="input input-bordered" required />
+                    <input type="email" placeholder="email" name="email" className="input input-bordered" />
                   </div>
 
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Password</span>
                     </label>
-                    <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                    <input type="password" placeholder="password" name="password" className="input input-bordered" />
                     <label className="label">
                       <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                     </label>
@@ -121,14 +122,14 @@ const SingIn = () => {
                     <button onClick={handleGoogleSignIn} className="btn btn-outline btn-primary"><FaGoogle className="me-2 text-3xl" />  SignIn With Google</button>
                   </div>
 
-                  <p>New to the website? <Link to="/signUp"> <button className="btn btn-link">Sign Up</button></Link></p>
+                  <p>New to EnjoyToy? <Link to="/signUp"> <button className="btn btn-link">Sign Up</button></Link></p>
                 </div>
               </div>
             </div>
           </div>
         </form>
       </div>
-
+      <Footer></Footer>
     </div>
   );
 };

@@ -1,8 +1,14 @@
 import './NavBar.css'
 import logo from '../../../../public/icon.jpeg'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext)
+  console.log('User Details in the Nav Bar', user)
+
   const navItems = <>
     <li><Link to="/">Home</Link></li>
     <li><a>All Toys</a></li>
@@ -10,8 +16,36 @@ const NavBar = () => {
     <li><a>Add A Toy</a></li>
     <li><Link to="/blogs">Blogs</Link></li>
   </>
+
+  // function to handle ser sign out
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        // show the successful sign out message
+        Swal.fire({
+          title: 'Success!',
+          text: 'Successfully Signed Out',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+
+      })
+      .catch((error) => {
+        console.error(error.mess
+        )
+        // show the error message
+        Swal.fire({
+          title: 'Error!',
+          text: error.message,
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
+      })
+  }
+
+
   return (
-    <div className="navbar bg-blue-500 hover:bg-blue-600 text-xl ">
+    <div className="navbar bg-blue-500  text-xl ">
       {/* navbar-starts */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -42,7 +76,10 @@ const NavBar = () => {
       </div>
       {/* navbar-ends */}
       <div className="navbar-end">
-        <Link to="/signIn"><a className="btn">Sign In</a></Link>
+        {
+          user?.email ? <button onClick={handleSignOut} className="btn">Sign Out</button> : <Link to="/signIn"><button className="btn ">Sign In</button></Link>
+        }
+
       </div>
     </div>
   );
