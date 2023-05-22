@@ -23,8 +23,6 @@ console.log("Storage Bucket:", import.meta.env.VITE_storageBucket);
 console.log("Messaging Sender ID:", import.meta.env.VITE_messagingSenderId);
 console.log("App ID:", import.meta.env.VITE_appId);
 
-
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
