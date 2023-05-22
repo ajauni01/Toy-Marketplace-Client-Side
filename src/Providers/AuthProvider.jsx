@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
     }
   }, [])
 
+
   // function to logout
   const logOut = () => {
     return signOut(auth)

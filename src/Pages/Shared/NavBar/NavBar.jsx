@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext)
-  console.log('User Details in the Nav Bar', user)
+  console.log('Context API User', user)
 
   const navItems = <>
     <li><Link to="/">Home</Link></li>

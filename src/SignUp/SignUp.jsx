@@ -4,11 +4,10 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import Footer from "../Pages/Shared/Footer/Footer";
-
+import { updateProfile } from "firebase/auth";
 const SignUp = () => {
 
-  const { user, createUser } = useContext(AuthContext)
-  console.log('Current User after auth change', user)
+  const { createUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
   const handleRegister = event => {
@@ -24,8 +23,20 @@ const SignUp = () => {
     // call the createUser function to complete new user sign up process
     createUser(email, password)
       .then(result => {
-        console.log(result.user)
-        // show the successful sign up
+        const user = result.user;
+
+        updateProfile(user, {
+          displayName: name, photoURL: photoUrl
+        }).then(() => {
+          // Profile updated!
+          // ...
+          console.log('Updated Info by updateProfile', user)
+        }).catch((error) => {
+          // An error occurred
+          // ...
+        });
+
+        // show the successful sign up message
         Swal.fire({
           title: 'Success!',
           text: 'Successfully Signed Up',
@@ -48,8 +59,6 @@ const SignUp = () => {
           confirmButtonText: 'Ok'
         })
       })
-
-
   }
 
   return (
