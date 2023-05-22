@@ -1,19 +1,21 @@
 import './NavBar.css'
 import logo from '../../../../public/icon.jpeg'
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext)
+  const [isHovered, setIsHovered] = useState(false);
   console.log('Context API User', user)
 
   const navItems = <>
     <li><Link to="/">Home</Link></li>
     <li><a>All Toys</a></li>
-    <li><a>My Toys</a></li>
-    <li><a>Add A Toy</a></li>
+    {user?.displayName ? <> <li><a>My Toys</a></li>
+      <li><a>Add A Toy</a></li></> : <> </>
+    }
     <li><Link to="/blogs">Blogs</Link></li>
   </>
 
@@ -46,6 +48,9 @@ const NavBar = () => {
 
   return (
     <div className="navbar bg-blue-500  text-xl ">
+
+
+
       {/* navbar-starts */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -61,7 +66,7 @@ const NavBar = () => {
 
         <div className="avatar">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-            <img src={logo} />
+            <Link to="/"><img src={logo} /></Link>
           </div>
         </div>
         <a className="btn btn-ghost normal-case text-5xl">EnjoyToy</a>
@@ -76,12 +81,29 @@ const NavBar = () => {
       </div>
       {/* navbar-ends */}
       <div className="navbar-end">
-        {
-          user?.email ? <button onClick={handleSignOut} className="btn">Sign Out</button> : <Link to="/signIn"><button className="btn ">Sign In</button></Link>
-        }
+        {user?.displayName ? (
+          <div
+            className="avatar me-3"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)} >
 
+
+            <div className={`w-20 me-3 rounded-full ${isHovered ? 'ring ring-primary ring-offset-base-100 ring-offset-2' : ''}`}>
+              <img src={user.photoURL} alt="User Avatar" />
+            </div>
+            {isHovered && <span className='p-5'>{user.displayName}</span>}
+
+
+            <button onClick={handleSignOut} className="btn me-2 mt-4 ">Sign Out</button>
+          </div>
+        ) : (
+          <Link to="/signIn">
+            <button className="btn">Sign In</button>
+          </Link>
+        )}
       </div>
     </div>
+
   );
 };
 

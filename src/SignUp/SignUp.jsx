@@ -8,8 +8,6 @@ import { updateProfile } from "firebase/auth";
 const SignUp = () => {
 
   const { createUser } = useContext(AuthContext)
-  const navigate = useNavigate()
-
   const handleRegister = event => {
     // prevent the browser from going back to the default setting
     event.preventDefault()
@@ -39,14 +37,12 @@ const SignUp = () => {
         // show the successful sign up message
         Swal.fire({
           title: 'Success!',
-          text: 'Successfully Signed Up',
+          text: 'Successfully Signed Up. Please Sign In to continue..',
           icon: 'success',
           confirmButtonText: 'Ok'
         })
         // re-set the form after a successful registration
         form.reset()
-        // navigate the user to the home page after a successful registration
-        navigate("/")
       })
 
       .catch(error => {
