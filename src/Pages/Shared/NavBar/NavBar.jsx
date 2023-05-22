@@ -8,7 +8,7 @@ const NavBar = () => {
     <li><a>All Toys</a></li>
     <li><a>My Toys</a></li>
     <li><a>Add A Toy</a></li>
-    <li><a>Blogs</a></li>
+    <li><Link to="/blogs">Blogs</Link></li>
   </>
   return (
     <div className="navbar bg-blue-500 hover:bg-blue-600 text-xl ">

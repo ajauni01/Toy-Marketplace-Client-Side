@@ -7,6 +7,7 @@ import ErrorPage from "../Pages/Shared/ErrorPage";
 import SignUp from "../SignUp/SignUp";
 import SingIn from "../SignIn/SingIn";
 import Home from "../Pages/Home/Home";
+import Blogs from "../Pages/Blogs/Blogs";
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
   {
     path: "signIn",
     element: <SingIn></SingIn>,
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "blogs",
+    element: <Blogs></Blogs>,
     errorElement: <ErrorPage></ErrorPage>,
   },
 
