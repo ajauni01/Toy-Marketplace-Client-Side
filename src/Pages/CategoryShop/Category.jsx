@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ShopCategoryCard from '../ShopCategoryCard';
 
 const CategoryShop = () => {
   const [cars, setCars] = useState([]);
@@ -29,25 +30,22 @@ const CategoryShop = () => {
   };
 
   return (
-    <div>
+    <div className='text-center'>
       {/* Dropdown menu for selecting car category */}
       <div className="dropdown dropdown-hover">
-        <label tabIndex={0} className="btn m-1">Shop By Category</label>
-        <select onChange={handleOptionChange}>
-          <option value="">All Cars</option>
-          <option value="regularToy">Regular Cars</option>
-          <option value="sportsToy">Sports Cars</option>
-          <option value="policeToy">Police Cars</option>
+        <label tabIndex={0} className="btn mt-10 mb-10 me-2">Shop By Category</label>
+        <select className='font-bold' onChange={handleOptionChange}>
+          <option className='font-bold text-orange-700' value="">All Cars</option>
+          <option className='font-bold text-orange-700' value="regularToy">Regular Cars</option>
+          <option className='font-bold text-orange-700' value="sportsToy ">Sports Cars</option>
+          <option className='font-bold text-orange-700' value="policeToy">Police Cars</option>
         </select>
       </div>
       {/* Display car list */}
-      <ul>
-        {cars.map((car) => (
-          // <li key={car._id}>{car.name}</li>
-          <img key={car._id} src={car.picture} alt="" />
-        ))}
-      </ul>
-    </div>
+      <div className='grid grid-cols-1 md:grid-cols-3 w-full md:max-w-6xl mx-auto gap-5'>
+        {cars.map(car => <ShopCategoryCard key={car._id} car={car}></ShopCategoryCard>)}
+      </div>
+    </div >
   );
 };
 
