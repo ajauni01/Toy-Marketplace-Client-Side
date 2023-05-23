@@ -1,4 +1,5 @@
 import banner from '../../../public/banner.jpeg'
+import CategoryShop from '../CategoryShop/Category';
 
 const Home = () => {
 
@@ -53,6 +54,10 @@ const Home = () => {
         </div>
       </div>
       {/* gallery-section-ends */}
+
+      {/* shop by category */}
+      <CategoryShop></CategoryShop>
+
     </div>
   );
 };

@@ -1,0 +1,26 @@
+[
+  {
+    "picture": "https://images.pexels.com/photos/5472259/pexels-photo-5472259.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "Black Police Car",
+    "price": "$24.99",
+    "rating": 4.8,
+    "details": "View Details",
+    "description": "A black police car with realistic sirens and flashing lights. Help enforce the law and keep the imaginary city safe.",
+    "color": "Black",
+    "ageRange": "3+ Years",
+    "brand": "LawKeepers",
+    "material": "Plastic"
+  },
+  {
+    "picture": "https://images.pexels.com/photos/532001/pexels-photo-532001.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "name": "White Police Car",
+    "price": "$27.99",
+    "rating": 4.7,
+    "details": "View Details",
+    "description": "A white police car with sound effects and removable police officer figure. Join the force and solve exciting pretend play cases.",
+    "color": "White",
+    "ageRange": "4+ Years",
+    "brand": "CopCruisers",
+    "material": "Metal"
+  }
+]
