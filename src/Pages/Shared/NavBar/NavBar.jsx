@@ -12,14 +12,13 @@ const NavBar = () => {
 
   const navItems = <>
     <li><Link to="/">Home</Link></li>
-    <li><a>All Toys</a></li>
-    {user?.displayName ? <> <li><a>My Toys</a></li>
+    <Link to="/allToys"><li><a>All Toys</a></li></Link>
+    {user?.displayName ? <> <Link to="/myToys"><li><a>My Toys</a></li></Link>
       <Link to="/addToy"><li><a>Add A Toy</a></li></Link>
     </> : <> </>
     }
     <li><Link to="/blogs">Blogs</Link></li>
   </>
-
   // function to handle ser sign out
   const handleSignOut = () => {
     logOut()
