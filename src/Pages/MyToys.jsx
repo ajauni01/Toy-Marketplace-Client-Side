@@ -11,7 +11,7 @@ const MyToys = () => {
   const [toyInfo, setToyInfo] = useState([])
   // use query parameter to search for specified user's added toys in the mongoDB database
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?email=${user.email}`)
+    fetch(`https://toy-server-3.vercel.app/myToys?email=${user.email}`)
       .then(res => res.json())
       .then(data => setToyInfo(data
       ))

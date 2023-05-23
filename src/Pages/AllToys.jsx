@@ -11,7 +11,7 @@ const AllToys = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allToys")
+    fetch("https://toy-server-3.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => {
         setAllToy(data);

@@ -45,7 +45,7 @@ const router = createBrowserRouter([
   {
     path: "viewDetails/:id",
     element: <PrivateRoute> <ViewDetails></ViewDetails></PrivateRoute>,
-    loader: ({ params }) => fetch(`http://localhost:5000/viewDetails/${params.id}`),
+    loader: ({ params }) => fetch(`https://toy-server-3.vercel.app/viewDetails/${params.id}`),
     errorElement: <ErrorPage></ErrorPage>
   },
   {

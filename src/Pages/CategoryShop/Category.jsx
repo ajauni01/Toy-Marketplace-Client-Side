@@ -11,9 +11,9 @@ const CategoryShop = () => {
 
   const fetchToyData = async (category) => {
     try {
-      let url = 'http://localhost:5000/allToyCars';
+      let url = 'https://toy-server-3.vercel.app/allToyCars';
       if (category) {
-        url = `http://localhost:5000/${category}`;
+        url = `https://toy-server-3.vercel.app/${category}`;
       }
       const response = await fetch(url);
       const data = await response.json();
