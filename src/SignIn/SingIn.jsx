@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../Pages/Shared/NavBar/NavBar";
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
@@ -10,6 +10,11 @@ import Footer from "../Pages/Shared/Footer/Footer";
 
 
 const SingIn = () => {
+  const location = useLocation()
+  // take the user to the last browsed page after a successful login
+  console.log('Location', location)
+  const from = location.state?.from?.pathname || '/';
+  console.log('From', from)
   const navigate = useNavigate()
   const { user, signIn } = useContext(AuthContext)
   const provider = new GoogleAuthProvider();
@@ -37,7 +42,7 @@ const SingIn = () => {
         // re-set the form after a successful sign in
         form.reset()
         // navigate the user to the home page after a successful sign in
-        navigate("/")
+        navigate(from, { replace: true })
       })
 
       .catch(error => {
