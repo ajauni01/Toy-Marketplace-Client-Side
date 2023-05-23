@@ -10,6 +10,7 @@ import Home from "../Pages/Home/Home";
 import Blogs from "../Pages/Blogs/Blogs";
 import ViewDetails from "../Pages/ViewDetails";
 import PrivateRoute from "../Pages/PrivateRoute";
+import AddToy from "../Pages/addToy";
 
 
 const router = createBrowserRouter([
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
     element: <PrivateRoute> <ViewDetails></ViewDetails></PrivateRoute>,
     loader: ({ params }) => fetch(`http://localhost:5000/viewDetails/${params.id}`),
     errorElement: <ErrorPage></ErrorPage>
+  },
+  {
+    path: "addToy",
+    element: <PrivateRoute> <AddToy></AddToy></PrivateRoute>,
+    errorElement: < ErrorPage ></ErrorPage >
   },
 
 ]);
