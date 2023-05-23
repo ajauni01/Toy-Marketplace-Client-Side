@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 
 const ShopCategoryCard = ({ car }) => {
 
   const { _id, picture, name, price, rating } = car;
-
+  console.log('Id', _id)
   return (
     <div>
       <div className="card w-96 h-[400px] bg-base-100 shadow-xl">
@@ -17,7 +18,7 @@ const ShopCategoryCard = ({ car }) => {
             <div className="badge badge-outline">{price}</div>
             <div className="badge badge-outline">{rating}</div>
           </div>
-          <button className="btn btn-primary mt-5">View Details</button>
+          <Link to={`/viewDetails/${_id}`}><button className="btn btn-primary mt-5">View Details</button></Link>
 
         </div>
 

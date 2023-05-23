@@ -8,6 +8,7 @@ import SignUp from "../SignUp/SignUp";
 import SingIn from "../SignIn/SingIn";
 import Home from "../Pages/Home/Home";
 import Blogs from "../Pages/Blogs/Blogs";
+import ViewDetails from "../Pages/ViewDetails";
 
 
 const router = createBrowserRouter([
@@ -37,7 +38,12 @@ const router = createBrowserRouter([
     element: <Blogs></Blogs>,
     errorElement: <ErrorPage></ErrorPage>,
   },
-
+  {
+    path: "viewDetails/:id",
+    element: <ViewDetails></ViewDetails>,
+    loader: ({ params }) => fetch(`http://localhost:5000/viewDetails/${params.id}`),
+    errorElement: <ErrorPage></ErrorPage>
+  },
 
 ]);
 
